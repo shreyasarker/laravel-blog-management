@@ -143,4 +143,5 @@
             @endif
         </div>
     </section>
+   <x-footer />
 </div>

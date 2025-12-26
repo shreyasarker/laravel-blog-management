@@ -169,17 +169,5 @@
             </div>
         </section>
     @endif
-
-    {{-- Newsletter CTA --}}
-    <section class="bg-indigo-600 py-16 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold text-white mb-4">Enjoyed this article?</h2>
-            <p class="text-xl text-indigo-100 mb-8">Subscribe to get more content like this delivered to your inbox.</p>
-            <a href="/#newsletter" 
-               wire:navigate
-               class="inline-block bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-3 rounded-lg font-semibold transition duration-150">
-                Subscribe Now
-            </a>
-        </div>
-    </section>
+    <x-footer />
 </div>
