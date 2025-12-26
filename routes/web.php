@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Pages\About;
+use App\Livewire\Pages\Contact;
 use App\Livewire\Pages\Home;
 use App\Livewire\Pages\PostShow;
 use Illuminate\Support\Facades\Route;
@@ -9,9 +10,7 @@ Route::get('/', Home::class)->name('home');
 Route::get('/posts/{slug}', PostShow::class)->name('posts.show');
 
 Route::get('/about', About::class)->name('about');
-Route::get('/contact', function () {
-    return "contact";
-})->name('contact');
+Route::get('/contact', Contact::class)->name('contact');
 Route::get('/blog', function () {
     return "blog";
 })->name('blog');
