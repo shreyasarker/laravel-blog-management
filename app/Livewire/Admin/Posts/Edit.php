@@ -12,7 +12,8 @@ use Livewire\Attributes\Layout;
 #[Layout('components.layouts.admin')]
 class Edit extends Component
 {
-    public Post $post;
+    public $postId;
+    public $post;
     public $title = '';
     public $slug = '';
     public $category_id = '';
@@ -22,24 +23,27 @@ class Edit extends Component
     public $published_at = '';
     public $selectedTags = [];
 
-    public function mount(Post $post)
+    public function mount($id)  // Changed from Post $post to $id
     {
-        $this->post = $post;
-        $this->title = $post->title;
-        $this->slug = $post->slug;
-        $this->category_id = $post->category_id;
-        $this->excerpt = $post->excerpt;
-        $this->body = $post->body;
-        $this->status = $post->status;
-        $this->published_at = $post->published_at?->format('Y-m-d\TH:i');
-        $this->selectedTags = $post->tags->pluck('id')->toArray();
+        $this->postId = $id;
+        $this->post = Post::with(['category', 'tags'])->findOrFail($id);
+        
+        // Pre-fill all fields
+        $this->title = $this->post->title;
+        $this->slug = $this->post->slug;
+        $this->category_id = $this->post->category_id;
+        $this->excerpt = $this->post->excerpt ?? '';
+        $this->body = $this->post->body;
+        $this->status = $this->post->status;
+        $this->published_at = $this->post->published_at?->format('Y-m-d\TH:i') ?? '';
+        $this->selectedTags = $this->post->tags->pluck('id')->toArray();
     }
 
     protected function rules()
     {
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug,' . $this->post->id,
+            'slug' => 'required|string|max:255|unique:posts,slug,' . $this->postId,
             'category_id' => 'required|exists:categories,id',
             'excerpt' => 'nullable|string|max:500',
             'body' => 'required|string',
