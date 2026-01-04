@@ -12,6 +12,7 @@ use App\Livewire\Admin\Posts\Create as PostsCreate;
 use App\Livewire\Admin\Posts\Edit as PostsEdit;
 use App\Livewire\Admin\Categories\Index as CategoriesIndex;
 use App\Livewire\Admin\Tags\Index as TagsIndex;
+use App\Livewire\Admin\Contacts\Index as ContactsIndex;
 
 use App\Livewire\TestLivewire;
 
@@ -46,11 +47,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     // Categories
     Route::get('/categories', CategoriesIndex::class)->name('admin.categories.index');
     
-    // // Tags
+    // Tags
     Route::get('/tags', TagsIndex::class)->name('admin.tags.index');
     
-    // // Contacts
-    // Route::get('/contacts', ContactsIndex::class)->name('admin.contacts.index');
+    // Contacts
+    Route::get('/contacts', ContactsIndex::class)->name('admin.contacts.index');
     
     // // Subscribers
     // Route::get('/subscribers', SubscribersIndex::class)->name('admin.subscribers.index');
