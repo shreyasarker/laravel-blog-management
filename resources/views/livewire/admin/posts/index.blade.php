@@ -1,11 +1,4 @@
 <div>
-     {{-- 🟡 DEBUG BOX - Remove after testing --}}
-    <div class="mb-4 p-4 bg-yellow-200 border-2 border-yellow-600">
-        <h3 class="font-bold mb-2">DEBUG:</h3>
-        <p>Search: "{{ $search }}"</p>
-        <p>Status: "{{ $filterStatus }}"</p>
-        <p>Category: "{{ $filterCategory }}"</p>
-    </div>
     {{-- Page Header --}}
     <div class="mb-8 flex items-center justify-between">
         <div>
