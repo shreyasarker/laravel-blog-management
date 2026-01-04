@@ -10,6 +10,7 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Posts\Index as PostsIndex;
 use App\Livewire\Admin\Posts\Create as PostsCreate;
 use App\Livewire\Admin\Posts\Edit as PostsEdit;
+use App\Livewire\Admin\Categories\Index as CategoriesIndex;
 
 use App\Livewire\TestLivewire;
 
@@ -41,8 +42,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/posts/create', PostsCreate::class)->name('admin.posts.create');
     Route::get('/posts/{id}/edit', PostsEdit::class)->name('admin.posts.edit');
     
-    // // Categories
-    // Route::get('/categories', CategoriesIndex::class)->name('admin.categories.index');
+    // Categories
+    Route::get('/categories', CategoriesIndex::class)->name('admin.categories.index');
     
     // // Tags
     // Route::get('/tags', TagsIndex::class)->name('admin.tags.index');
